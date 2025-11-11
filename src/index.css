@@ -1,0 +1,15 @@
+@font-face {
+  font-family: Lexend;
+  src: url("fonts/Lexend-Regular.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-lexend: Lexend, "sans-serif";
+}
+
+section, 
+.main-div {
+  background-color: #000000;
+}
