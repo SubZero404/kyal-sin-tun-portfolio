@@ -34,7 +34,7 @@ const Contact = () => {
     <section
       id="contact"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center 
-  bg-black md:bg-gradient-to-r md:from-black md:via-gray-900 md:to-gray-800 
+  bg-black md:bg-gradient-to-r md:from-black md:via-gray-1000 md:to-gray-900 
   text-white px-6 pt-16 gap-10"
     >
       {/* Left Image */}
@@ -99,7 +99,7 @@ const Contact = () => {
           </p>
           <div className="flex gap-6 text-2xl">
             <a
-              href="https://facebook.com/yourusername"
+              href="https://www.facebook.com/subzero404"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-500 transition-colors"
@@ -107,7 +107,7 @@ const Contact = () => {
               <FaFacebook />
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/kyal-sin-tun-234900341?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-blue-400 transition-colors"
@@ -115,7 +115,7 @@ const Contact = () => {
               <FaLinkedin />
             </a>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/SubZero404"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gray-400 transition-colors"

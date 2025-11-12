@@ -46,7 +46,7 @@ const Navbar = () => {
         {/* Logo */}
         <a href="#home">
           <p className="font-lexend text-xl font-semibold tracking-wide">
-            Kyal Sin Tun
+            Kyal Sin Tun <span className="text-red-700 text-2xl font-lexend">(J)</span>
           </p>
         </a>
 
