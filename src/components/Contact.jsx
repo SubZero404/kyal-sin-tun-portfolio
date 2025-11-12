@@ -34,7 +34,8 @@ const Contact = () => {
     <section
       id="contact"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center 
-                bg-gradient-to-r from-black via-gray-1000 to-gray-900 text-white px-6 pt-16 gap-10"
+  bg-black md:bg-gradient-to-r md:from-black md:via-gray-900 md:to-gray-800 
+  text-white px-6 pt-16 gap-10"
     >
       {/* Left Image */}
       <div className="flex-1 flex items-end justify-center h-full">
