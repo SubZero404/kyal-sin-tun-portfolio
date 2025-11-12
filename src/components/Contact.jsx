@@ -33,7 +33,8 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 text-white px-6 pt-16 gap-10"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center 
+                bg-gradient-to-r from-black via-gray-1000 to-gray-900 text-white px-6 pt-16 gap-10"
     >
       {/* Left Image */}
       <div className="flex-1 flex items-end justify-center h-full">
