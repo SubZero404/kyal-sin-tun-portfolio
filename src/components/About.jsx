@@ -1,8 +1,9 @@
 import MetaBalls from "./MetaBalls/MetaBalls";
+import ScrollFloat from "./ScrollFloat/ScrollFloat";
 
 export default function About() {
   return (
-    <section className=" relative bg-gray-900 text-gray-100 min-h-screen p-8 md:p-16 flex flex-col justify-center">
+    <section id="about" className=" relative bg-gray-900 text-gray-100 min-h-screen p-8 md:p-16 flex flex-col justify-center">
       <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
         <MetaBalls
         color="#ff6262ef"
@@ -19,9 +20,17 @@ export default function About() {
       </div>
 
       <div className="max-w-4xl mx-auto space-y-6 z-10">
-        <h1 className="text-4xl text-center lg:text-start md:text-5xl font-lexend font-bold text-gray-400">
-          About Me
-        </h1>
+        <div className="text-center">
+        <ScrollFloat
+        animationDuration={1}
+        ease="back.inOut(2)"
+        scrollStart="center bottom+=50%"
+        scrollEnd="bottom bottom-=40%"
+        stagger={0.03}
+      >
+        About Me
+      </ScrollFloat>
+      </div>
         
         <p className="text-lg md:text-xl leading-relaxed font-lexend">
           I’m a passionate{" "}

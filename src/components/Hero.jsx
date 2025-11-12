@@ -22,7 +22,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id='hero' className="relative w-screen min-h-screen" style={{ background: '#202020' }}>
+    <section id='home' className="relative w-screen min-h-screen" style={{ background: '#202020' }}>
       <div className="absolute left-0 top-0">
         <div className='w-screen h-screen relative'>
           <LightRays

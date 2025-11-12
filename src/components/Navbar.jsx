@@ -32,7 +32,7 @@ const Navbar = () => {
     <nav className="w-full fixed top-0 left-0 z-50 p-5 text-white">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#home">
-          <p className="font-lexend text-red-700 text-lg">Kyal Sin Tun</p>
+          <p className="font-lexend text-lg">Kyal Sin Tun</p>
         </a>
         <ul className="flex flex-row gap-4 md:gap-8 font-lexend text-md">
           {["Home", "About", "Project", "Contact"].map((item) => (

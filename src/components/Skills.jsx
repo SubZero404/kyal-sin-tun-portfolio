@@ -42,7 +42,7 @@ export default function Skills() {
   return (
     <div className="min-h-screen main-div text-white py-12 px-6 md:px-20">
 
-      <div className="relative h-[200px] md:h-[350px]">
+      <div className="relative h-[200px] md:h-[350px] xl:h-[450px]">
         <TextPressure
           text="SKILLS"
           flex={true}
