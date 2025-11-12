@@ -8,7 +8,7 @@ const skills = [
   {
     title: "Frontend",
     icon: <FaReact className="text-sky-500 text-4xl" />,
-    description: "HTML, CSS, JavaScript, Bootstrap, React, React Native",
+    description: "HTML, CSS, JavaScript, Bootstrap, Tailwind, React, React Native and many others",
   },
   {
     title: "Backend",

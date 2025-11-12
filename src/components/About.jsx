@@ -34,17 +34,17 @@ export default function About() {
         
         <p className="text-lg md:text-xl leading-relaxed font-lexend">
           I’m a passionate{" "}
-          <span className="text-red-700">Full Stack Web Developer</span>
+          <span className="text-red-700">Full Stack Web Developer </span>
           from Myanmar with over 4 years of experience in web development
-          <span className="text-red-700">since 2021</span>. I build responsive,
+          <span className="text-red-700"> since 2021</span>. I build responsive,
           user-friendly websites and applications using modern technologies and
           UI libraries. I’m also experienced with APIs and GitHub for version
           control.
         </p>
         <p className="text-lg md:text-xl leading-relaxed font-lexend">
-          I hold the <span className="text-red-700">ITPEC IP & FE </span> and
+          I hold the <span className="text-red-700"> ITPEC IP & FE </span> and
           completed
-          <span className="text-red-700">Harvard's CS50x</span> course
+          <span className="text-red-700"> Harvard's CS50x</span> course
           certifications, which strengthened my foundation in computer science.
           For comunication I completed Japanese Language
           <span className="text-red-700"> JLPT N4</span> certification. I’m
