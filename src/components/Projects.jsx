@@ -2,6 +2,8 @@ import React from "react";
 import { FaLink, FaGithub, FaPlay } from "react-icons/fa";
 import ScrollFloat from "./ScrollFloat/ScrollFloat";
 import GlareHover from "./GlareHover/GlareHover";
+import gsap, { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
 
 const projects = [
   {
@@ -26,7 +28,74 @@ const projects = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Projects() {
+  useGSAP(() => {
+    // select all project and loop
+    gsap.utils.toArray(".project-div").forEach((div) => {
+      // create a timeline for each project div
+      const scrollTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: div,
+          start: "top 80%",
+          end: "bottom 70%",
+          toggleActions: "play none none reverse",
+          // scrub: true,
+          // markers: true
+        },
+      });
+
+      scrollTimeline
+        .from(div.querySelector(".project-img-div"), {
+          opacity: 0,
+          duration: 1,
+          ease: "power3.out",
+        })
+        .from(
+          div.querySelector(".project-title"),
+          {
+            opacity: 0,
+            yPercent: 30,
+            duration: 0.7,
+            ease: "back.out(1.7)",
+          },
+          "-=0.3"
+        )
+        .from(
+          div.querySelector(".project-description"),
+          {
+            opacity: 0,
+            yPercent: 20,
+            duration: 0.7,
+            ease: "power2.out",
+          },
+          "-=0.4"
+        )
+        .from(
+          [...div.querySelectorAll(".use-skill-div .skill-span")],
+          {
+            opacity: 0,
+            yPercent: 40,
+            stagger: 0.15,
+            duration: 0.6,
+            ease: "power2.out",
+          },
+          "-=0.3"
+        )
+        .from(
+          div.querySelector(".btns-div"),
+          {
+            opacity: 0,
+            yPercent: 20,
+            duration: 0.5,
+            ease: "power2.out",
+          },
+          "-=0.2"
+        );
+    });
+  });
+
   return (
     <section
       id="project"
@@ -48,10 +117,10 @@ export default function Projects() {
         {projects.map((project, index) => (
           <div
             key={index}
-            className="overflow-hidden hover:scale-[1.01] transition-transform flex flex-col lg:flex-row items-center"
+            className="project-div overflow-hidden hover:scale-[1.01] transition-transform flex flex-col lg:flex-row items-center"
           >
             {/* 🖼 Image — takes 50% width */}
-            <div className="w-full lg:w-1/2 flex justify-center">
+            <div className="w-full lg:w-1/2 flex justify-center project-img-div">
               <GlareHover
                 width="380px"
                 height="220px"
@@ -73,17 +142,17 @@ export default function Projects() {
             {/* 🧠 Description — takes 50% width */}
             <div className="w-full lg:w-1/2 flex flex-col justify-between pt-3 lg:px-6 font-lexend max-w-96">
               <div>
-                <h3 className="text-2xl font-semibold mb-2 text-red-700">
+                <h3 className="text-2xl font-semibold mb-2 text-red-700 project-title">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4">
+                <p className="text-gray-400 text-sm mb-4 project-description">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 use-skill-div">
                   {project.tech.map((t, i) => (
                     <span
                       key={i}
-                      className="text-xs bg-zinc-800 px-2 py-1 rounded-lg text-gray-300"
+                      className="skill-span text-xs bg-zinc-800 px-2 py-1 rounded-lg text-gray-300"
                     >
                       {t}
                     </span>
@@ -92,7 +161,7 @@ export default function Projects() {
               </div>
 
               {/* 🔗 Buttons */}
-              <div className="mt-6 flex items-center gap-3">
+              <div className="mt-6 flex items-center gap-3 btns-div">
                 {project.link && (
                   <a
                     href={project.link}
@@ -102,7 +171,7 @@ export default function Projects() {
                   >
                     <FaLink /> Visit Site
                   </a>
-                ) }
+                )}
 
                 {/* 🐙 GitHub Button */}
                 {project.github && (

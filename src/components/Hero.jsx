@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import LightRays from './LightRays/LightRays';
-import { ScrollTrigger, SplitText } from 'gsap/all';
+import { SplitText } from 'gsap/all';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
-
-gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
 
@@ -12,7 +10,6 @@ export default function Hero() {
     const titleSplit = new SplitText('#hero-title', { type: 'chars, words'})
 
     gsap.from(titleSplit.chars, {
-      yPercent: 100,
       duration: .15,
       opacity: 0,
       ease: "sine.out",

@@ -3,6 +3,9 @@ import TextPressure from "./TextPressure/TextPressure";
 
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaLaravel, FaPython, FaDatabase, FaGithub, FaGitAlt, FaLinux, FaCertificate, FaUserFriends } from "react-icons/fa";
 import { SiBootstrap, SiPostgresql, SiMysql, SiSqlite, SiOracle, SiVercel, SiOpenai } from "react-icons/si";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const skills = [
   {
@@ -37,10 +40,30 @@ const skills = [
   },
 ];
 
+gsap.registerPlugin(ScrollTrigger)
+
 export default function Skills() {
 
+  useGSAP(() => {
+  gsap.utils.toArray(".skill-div").forEach((el, i) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: "top 85%",
+        end: "bottom 70%",
+        toggleActions: "play none none reverse",
+      },
+      yPercent: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "back.out",
+      delay: 1 * 0.1,
+    });
+  });
+});
+
   return (
-    <div className="min-h-screen main-div text-white py-12 px-6 md:px-20">
+    <div id="skill" className="min-h-screen main-div text-white py-12 px-6 md:px-20">
 
       <div className="relative h-[200px] md:h-[350px] xl:h-[450px]">
         <TextPressure
@@ -59,7 +82,7 @@ export default function Skills() {
       
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 px-4">
         {skills.map((skill, index) => (
-          <div key={index} className="flex flex-col items-center p-6 transition">
+          <div key={index} className="flex flex-col items-center p-6 transition skill-div">
             {skill.icon}
             <h3 className="mt-4 text-xl font-lexend font-semibold">{skill.title}</h3>
             <p className="text-gray-400 mt-2 text-center">{skill.description}</p>

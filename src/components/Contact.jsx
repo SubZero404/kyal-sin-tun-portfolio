@@ -1,11 +1,62 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const sectionRef = useRef();
   const form = useRef();
   const [isTouched, setIsTouched] = useState(false);
-  const imgRef = useRef();
+
+  // GSAP animation
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 50%",
+          end: "bottom bottom",
+          // scrub: true,
+          toggleActions: "play none none reverse"
+        },
+      });
+
+      // Image fade only
+      tl.from(sectionRef.current.querySelector("#contact-img"), {
+        opacity: 0,
+        duration: 1.2,
+        ease: "power2.out",
+      })
+      // Title
+      .from(sectionRef.current.querySelector("h2"), {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+      }, "-=0.8")
+      // Description
+      .from(sectionRef.current.querySelector(".contact-description"), {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        ease: "power2.out",
+      }, "-=0.6")
+      // Social Links container
+      .from(sectionRef.current.querySelector(".social-links-container"), {
+        y: 20,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: "back.out(1.5)",
+      }, "-=0.5");
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -20,11 +71,11 @@ const Contact = () => {
         "your_public_key"
       )
       .then(
-        (result) => {
+        () => {
           alert("✅ Message sent successfully!");
           e.target.reset();
         },
-        (error) => {
+        () => {
           alert("❌ Failed to send message. Try again later.");
         }
       );
@@ -32,14 +83,16 @@ const Contact = () => {
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       className="min-h-screen flex flex-col md:flex-row items-center justify-center 
-  bg-black md:bg-gradient-to-r md:from-black md:via-gray-1000 md:to-gray-900 
-  text-white px-6 pt-16 gap-10"
+      bg-black md:bg-gradient-to-r md:from-black md:via-gray-1000 md:to-gray-900 
+      text-white px-6 pt-16 gap-10 overflow-hidden"
     >
       {/* Left Image */}
       <div className="flex-1 flex items-end justify-center h-full">
         <img
+          id="contact-img"
           src="/img/contact.png"
           alt="Contact illustration"
           className="w-[90%] md:w-[550px] lg:w-[600px] object-contain md:object-cover rounded-2xl shadow-lg md:rounded-none md:rounded-bl-2xl"
@@ -50,10 +103,10 @@ const Contact = () => {
       {/* Right Form */}
       <div className="flex-1 flex flex-col items-center font-lexend">
         <h2 className="text-4xl font-bold mb-3">
-          Let’s <span className="text-red-600">Connect</span>
+          Let’s <span className="contact-title text-red-600">Connect</span>
         </h2>
 
-        <p className="text-gray-400 mb-10 text-center max-w-lg w-9/12">
+        <p className="contact-description text-gray-400 mb-10 text-center max-w-lg w-9/12">
           Have a project in mind or just want to say hi? Fill out the form
           below, and I’ll get back to you soon.
         </p>
@@ -93,7 +146,7 @@ const Contact = () => {
         </form>
 
         {/* Social Links */}
-        <div className="flex flex-col items-center gap-3 mt-10 pb-16 lg:pb-0">
+        <div className="flex flex-col items-center gap-3 mt-10 pb-16 lg:pb-0 social-links-container">
           <p className="text-gray-400 text-sm uppercase tracking-wide">
             or contact from social
           </p>
