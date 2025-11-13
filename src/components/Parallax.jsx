@@ -32,7 +32,7 @@ function Parallax() {
       </div>
       <div className="absolute top-0 left-0 w-full h-full bg-[#00000095]"></div>
       <div className="flex flex-col justify-center items-center absolute w-full h-full top-0 left-0">
-        <h3 className="text-white font-serif font-bold text-5xl text-center p-5 w-full lg:w-3/4 leading-loose">Transform your business with smart technology.</h3>
+        <h3 className="text-white font-serif font-bold text-5xl text-center p-5 w-full lg:w-3/4 lg:leading-loose">Transform your business with smart technology.</h3>
       </div>
     </div>
   );
