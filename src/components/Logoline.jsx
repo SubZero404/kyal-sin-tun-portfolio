@@ -35,7 +35,7 @@ export default function SkillLogoLoop() {
   const loopIcons = [...icons, ...icons]; // duplicate for seamless loop
 
   return (
-    <div className="w-full overflow-hidden bg-black py-10">
+    <div className="w-full overflow-hidden bg-black">
       <div className="flex gap-12 animate-scroll-left">
         {loopIcons.map((item, index) => (
           <div
