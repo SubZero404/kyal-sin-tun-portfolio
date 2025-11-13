@@ -1,8 +1,32 @@
 import { useState, useEffect } from 'react';
 import LightRays from './LightRays/LightRays';
+import { ScrollTrigger, SplitText } from 'gsap/all';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
+gsap.registerPlugin(ScrollTrigger)
 
 export default function Hero() {
+
+  useGSAP(() => {
+    const titleSplit = new SplitText('#hero-title', { type: 'chars, words'})
+
+    gsap.from(titleSplit.chars, {
+      yPercent: 100,
+      duration: .15,
+      opacity: 0,
+      ease: "sine.out",
+      stagger: .015
+    })
+
+    gsap.from('#hero-img', {
+      opacity: 0,
+      ease: 'back.in',
+      duration: 2
+    })
+  })
+
+  
 
   const [raysOrigin, setRaysOrigin] = useState('left');
 
@@ -42,14 +66,14 @@ export default function Hero() {
 
       <div className=" absolute bottom-0 left-0 w-full h-11/12 flex flex-col lg:flex-row overflow-hidden">
         <div className="flex-1 lg:h-full flex items-center">
-          <p className='font-lexend text-white text-5xl lg:text-6xl text-center lg:text-start px-5 lg:ps-30'>
+          <p id="hero-title" className='font-lexend text-white text-5xl lg:text-6xl text-center lg:text-start px-5 lg:ps-30'>
             Hello! I'm a 
             <span className='text-red-700'> web developer </span> 
             with strong UI skills in frontend and best coding skills in backend
             </p>
         </div>
         <div className="flex-1 h-full flex justify-center">
-          <img src="/img/hero.png" alt="hero-img" className='w-auto h-full object-cover'/>
+          <img id="hero-img" src="/img/hero.png" alt="hero-img" className='w-auto h-full object-cover'/>
         </div>
       </div>
     </section>
