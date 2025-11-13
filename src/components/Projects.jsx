@@ -99,7 +99,7 @@ export default function Projects() {
   return (
     <section
       id="project"
-      className="min-h-screen bg-black text-white px-6 py-16"
+      className="min-h-screen bg-black text-white px-6 py-32"
     >
       <div className="text-center pb-8">
         <ScrollFloat
