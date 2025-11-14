@@ -77,13 +77,13 @@ const Navbar = () => {
 
       {/* Mobile Nav Menu (FULL SCREEN) */}
       <div
-        className={`fixed top-0 right-0 w-full h-screen bg-white text-black flex flex-col items-center justify-center gap-12 font-bold text-4xl overflow-y-auto transition-transform duration-500 ease-in-out z-50 ${
+        className={`fixed top-0 right-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center gap-12 font-bold text-4xl overflow-y-auto transition-transform duration-500 ease-in-out z-50 ${
           menuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Close button inside menu */}
         <button
-          className="absolute top-6 right-6 text-gray-800 hover:text-red-600 transition-all"
+          className="absolute top-6 right-6 text-white hover:text-red-600 transition-all"
           onClick={() => setMenuOpen(false)}
           aria-label="Close menu"
         >

@@ -11,7 +11,7 @@ const projects = [
     image: "/img/project/cocktail_demo.png",
     description:
       "A Cocktail website that sells cocktail and ram. Built using React JS especially using GSAP for scroll animation.",
-    tech: ["HTML", "CSS", "JavaScript", "React", "GSAP"],
+    tech: ["React", "GSAP", "Tailwind"],
     link: "https://cocktail-by-kyal.vercel.app/",
     github: "https://github.com/SubZero404/gsap_cocktail.git",
     video: "",
@@ -21,10 +21,20 @@ const projects = [
     image: "/img/project/e-commence_demo.png",
     description:
       "This is an e-commerce website where users can browse products, add them to a shopping cart, and place orders.",
-    tech: ["Flask Framework", "SQLite", "Node.js", "Jinja2"],
+    tech: ["Flask Framework", "SQLite", "Node.js", "python"],
     link: "",
     github: "https://github.com/SubZero404/cs50-final-project.git",
     video: "https://youtu.be/cELsCu7AL7Q",
+  },
+  {
+    title: "Blog Website",
+    image: "/img/project/blog_demo.png",
+    description:
+      "This is an blog website. Users can read and post blogs, and admin dashbord to manage blogs",
+    tech: ["Laravel Framework", "Vite", "PHP", "Bootstrap"],
+    link: "",
+    github: "https://github.com/SubZero404/laravel-blog.git",
+    video: "",
   },
 ];
 
