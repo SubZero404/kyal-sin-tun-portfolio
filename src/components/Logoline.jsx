@@ -1,4 +1,3 @@
-import React from "react";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -31,7 +30,7 @@ const icons = [
   { icon: <SiVercel /> },
 ];
 
-export default function SkillLogoLoop() {
+export default function Logoline() {
   const loopIcons = [...icons, ...icons]; // duplicate for seamless loop
 
   return (
