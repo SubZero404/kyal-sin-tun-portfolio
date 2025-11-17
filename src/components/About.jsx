@@ -80,8 +80,8 @@ export default function About() {
         </div>
 
         <p className="text-lg md:text-xl leading-relaxed font-lexend about-description">
-          I’m a {" hello"}
-          <span className="text-red-700">Full Stack Web Developer </span>
+          I’m a
+          <span className="text-red-700"> Full Stack Web Developer </span>
           from Myanmar with over 4 years of experience in web development
           <span className="text-red-700"> since 2021</span>. I build responsive,
           user-friendly websites and applications using modern technologies and
