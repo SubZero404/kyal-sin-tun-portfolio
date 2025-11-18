@@ -17,6 +17,16 @@ const projects = [
     video: "",
   },
   {
+    title: "Blog Website",
+    image: "/img/project/blog_demo.png",
+    description:
+      "This is an blog website. Users can read and post blogs, and admin dashbord to manage blogs",
+    tech: ["Laravel Framework", "Vite", "PHP", "Bootstrap"],
+    link: "",
+    github: "https://github.com/SubZero404/laravel-blog.git",
+    video: "https://youtu.be/3NvHvlzcf6E?si=55JahInCosCAyiR_",
+  },
+  {
     title: "E-commence Website",
     image: "/img/project/e-commence_demo.png",
     description:
@@ -26,22 +36,12 @@ const projects = [
     github: "https://github.com/SubZero404/cs50-final-project.git",
     video: "https://youtu.be/cELsCu7AL7Q",
   },
-  {
-    title: "Blog Website",
-    image: "/img/project/blog_demo.png",
-    description:
-      "This is an blog website. Users can read and post blogs, and admin dashbord to manage blogs",
-    tech: ["Laravel Framework", "Vite", "PHP", "Bootstrap"],
-    link: "",
-    github: "https://github.com/SubZero404/laravel-blog.git",
-    video: "",
-  },
 ];
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Projects() {
-  useGSAP(() => {
+  useGSAP(() => { 
     // select all project and loop
     gsap.utils.toArray(".project-div").forEach((div) => {
       // create a timeline for each project div
